@@ -7,7 +7,17 @@
 
 \f0\fs24 \cf0 Info\
 \
-This version still passes with 100% on Performance when deploying to Vercel. We restore all default NextJS boilerplate in app/layout.tsx such as import global.css and import google font inter. The two things we added in are:\
+This version still passes with 99% on Performance when deploying to Vercel. What we have at this stage are:\
+\
+(1) Emotion Cache + MUI Theme Registry are set up (refer to /src/theme files) so MUI v5 is now ready for usage\
+\
+(2) Google fonts (Inter / Roboto) imported and used via next/font/google\
+\
+(3) Set up modularizeImports in next.configs.js for MUI\
+\
+(4) Remove async header() block to next.config.js to cache control images such as svg and icon. This is unneccessary since by default, NextJS already caches the info and this is good enough for us to use.\
+\
+We restore all default NextJS boilerplate in app/layout.tsx such as import global.css and import google font inter. The two things we added in are:\
 \
 (1) Move favicon.ico from /app to /public and add in the code <link rel=\'93icon\'94> to layout.tsx\
 \
@@ -15,5 +25,5 @@ This version still passes with 100% on Performance when deploying to Vercel. We 
 \
 Once these changes are done, what happens is that the images are all cached the 2nd time and we can remove the extra 400ms loads for these images.
 \f1 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \
+\
 }
